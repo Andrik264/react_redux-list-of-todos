@@ -1,12 +1,20 @@
 module.exports = {
-  extends: ['@mate-academy/eslint-config-react-typescript', 'plugin:cypress/recommended'],
-  rules: {
-    'max-len': ['error', {
-      ignoreTemplateLiterals: true,
-      ignoreComments: true,
-    }],
-    'jsx-a11y/label-has-associated-control': ["error", {
-      assert: "either",
-    }],
+  extends: ['airbnb', '@mate-academy/eslint-config'],
+  env: {
+    commonjs: true,
+    node: true,
+    es6: true,
+    browser: true
   },
+  parserOptions: {
+    sourceType: "module"
+  },
+  "globals": {
+    it: false
+  },
+  rules: {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    'no-console': 'off',
+    "no-param-reassign": 0
+  }
 };

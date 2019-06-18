@@ -1,31 +1,56 @@
-# React dynamic list of TODOs
+# Base template for React
 
-> See [the working page](https://mate-academy.github.io/react_dynamic-list-of-todos/)
+## Task
 
-You are given the markup for the `App`, `TodosList`, `TodoFilter`, `TodoModal`
-and `Loader` components. Load data from the API and show it using the given components.
+## Workflow
 
-1. Load [the todos](https://mate-academy.github.io/react_dynamic-list-of-todos/api/todos.json) when the `App` is
-loaded and show them using `TodoList`;
-1. Show the `Loader` when waiting any data from the server;
-1. Use the `wait` function given in the `api.ts` to check if the `Loader`
-works as expected;
-1. When the `Show` button is clicked open the `TodoModal` with a selected `todo`;
-1. Don't forget to load [user details](https://mate-academy.github.io/react_dynamic-list-of-todos/api/users/1.json) (replace `1` with the actual `userId`);
-1. `x` button should close the modal;
-1. The `select` should filter todos by the `completed` status: `all`, `completed` and `active`(not completed) todos;
-1. Use the `input` in the `TodoFilter` to filter the `todos` by `title`;
-    - show the `x` button when the `query` is entered;
-    - the `x` button should clear the `query` and reset the todos;
+- Fork the repository with task
+- Clone forked repository
+    ```bash
+    git clone git@github.com:<user_name>>/<task_repository>.git
+    ```
+- Run `npm install` to install dependencies.
+- Then develop.
 
-## (*) Advanced tasks (optional)
+## Development mode
 
-1. Add `debounce` to the search input;
-1. Add `Randomize` button to the `App` to show the `todos` in a random order.
+- Run `npm run start` to start `http-server` on `http://localhost:3000`
+    When you run server the command line window will no longer be available for
+    writing commands until you stop server (`ctrl + c`). All other commands you
+    need to run in new command line window.
+- Follow [HTML, CSS styleguide](https://mate-academy.github.io/style-guides/htmlcss.html)
+- Follow [the simplified JS styleguide](https://mate-academy.github.io/style-guides/javascript-standard-modified)
+- When you finished `Deploy on gh-pages`
 
-## Instructions
+## Deploy on gh-pages
 
-- Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
-- Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
-- Open one more terminal and run tests with `npm test` to ensure your solution is correct.
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_dynamic-list-of-todos/) and add it to the PR description.
+- Build the project
+  ```bash
+  $ npm run build
+  ```
+- Commit and push all recent changes
+  ```bash
+  $ git add .
+  $ git commit -m 'commit message'
+  $ git push origin master
+  ```
+- Execute `npm run deploy`. This command will push the `/build` folder to branch
+  `gh-pages` in your remote repository.
+- Add links to your demo in readme.md.
+  - `[DEMO LINK](https://<your_account>.github.io/<repo_name>/)` - this will be a
+  link to your index.html
+- Commit and push all recent changes again.
+- Create `Pull Request` from forked repo `(<branch_name>)` to original repo
+(`master`).
+- Add a link at `PR` to Google Spreadsheets.
+
+## Project structure
+
+- `src/` - directory for css, js, image, fonts files
+- `build/` - directory for built pages
+
+You should be writing code in `src/` directory.
+
+### Demo link
+
+Add link here: `[DEMO LINK](https://<your_account>.github.io/<repo_name>/)`

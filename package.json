@@ -1,53 +1,49 @@
 {
-  "name": "react_dynamic-list-of-todos",
-  "homepage": ".",
+  "name": "react_task-boilerplate-ci",
   "version": "0.1.0",
+  "private": true,
   "keywords": [],
   "author": "Mate Academy",
   "license": "GPL-3.0",
+  "homepage": ".",
   "dependencies": {
-    "@cypress/react": "^5.12.4",
-    "@fortawesome/fontawesome-free": "^6.1.1",
-    "bulma": "^0.9.4",
-    "classnames": "^2.3.1",
-    "postcss": "^8.4.12",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "^4.0.3"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
   },
   "devDependencies": {
-    "@cypress/webpack-dev-server": "^1.8.4",
-    "@mate-academy/cypress-tools": "^1.0.4",
-    "@mate-academy/eslint-config-react": "0.0.7",
-    "@mate-academy/eslint-config-react-typescript": "^1.0.5",
-    "@mate-academy/scripts": "^1.2.3",
-    "@mate-academy/students-ts-config": "*",
+    "@mate-academy/eslint-config": "*",
     "@mate-academy/stylelint-config": "*",
-    "@types/node": "^17.0.23",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
-    "cypress": "^9.5.3",
-    "eslint": "^7.32.0",
-    "eslint-plugin-cypress": "^2.11.2",
-    "gh-pages": "^3.2.3",
-    "mochawesome": "^7.1.3",
-    "mochawesome-merge": "^4.2.0",
-    "mochawesome-report-generator": "^6.2.0",
-    "node-sass": "^6.0.1",
-    "stylelint": "^13.13.1",
-    "typescript": "^4.6.3"
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-react": "^7.13.0",
+    "stylelint": "^10.0.0"
   },
   "scripts": {
-    "start": "mate-scripts start -l",
-    "build": "mate-scripts build",
-    "test": "mate-scripts test -l",
-    "lint-js": "mate-scripts lint -j",
-    "lint-css": "mate-scripts lint -s",
-    "lint": "npm run lint-js && npm run lint-css",
-    "update": "mate-scripts update",
-    "postinstall": "npm run update && cypress verify",
-    "predeploy": "npm run build",
-    "deploy": "mate-scripts deploy"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "git subtree push --prefix build origin gh-pages"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.css": [
+        "stylelint",
+        "git add"
+      ],
+      "*.js": [
+        "eslint",
+        "git add"
+      ]
+    },
+    "ignore": []
   },
   "browserslist": {
     "production": [
@@ -60,13 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "mateAcademy": {
-    "_comment": "Replace 'reactTypescript' with 'react' if you want use React without Typescript",
-    "projectType": "reactTypescript",
-    "tests": {
-      "_comment": "Add `cypressComponents: true` to enable component tests",
-      "cypress": true
-    }
   }
 }
