@@ -1,1 +1,23 @@
 // not empty
+.App {
+  padding: 5vh 5vw;
+
+  &__container {
+    margin: 0 5vw;
+    border-color: transparent;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em 0 rgba(10, 10, 10, 10%),
+      0 0 0 0 rgba(10, 10, 10, 2%);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+  }
+}
+
+.todo {
+  &:hover {
+    background-color: rgba(101, 187, 241, 0.5);
+    cursor: default;
+  }
+}

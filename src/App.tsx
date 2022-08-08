@@ -1,26 +1,38 @@
-import { useSelector } from 'react-redux';
-
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.scss';
-import Start from './components/Start';
-import { Finish } from './components/Finish';
 
-import { isLoading, getMessage } from './store';
+import { actions, selectors } from './store';
+
+import { TodoList } from './components/TodoList';
+import { Loader } from './components/Loader';
+import { TodoModal } from './components/TodoModal';
+import { TodoFilter } from './components/TodoFilter';
 
 const App = () => {
-  const loading = useSelector(isLoading);
-  const message = useSelector(getMessage) || 'Ready!';
+  const dispatch = useDispatch();
+  const loading = useSelector(selectors.isLoading);
+  const selectedTodo = useSelector(selectors.getSelectedTodo);
+
+  useEffect(() => {
+    dispatch(actions.loadTodos());
+  }, []);
 
   return (
     <div className="App">
-      <h1>Redux list of todos</h1>
-      <h2>{loading ? 'Loading...' : message}</h2>
+      <div className="App__container">
+        <h1 className="is-size-2">Redux list of todos:</h1>
 
-      <Start title="Start loading" />
-      <Finish title="Succeed loading" message="Loaded successfully!" />
-      <Finish
-        title="Fail loading"
-        message="An error occurred when loading data."
-      />
+        <TodoFilter />
+
+        <div className="todoList">
+          {loading
+            ? <Loader />
+            : <TodoList />}
+        </div>
+
+        {selectedTodo && <TodoModal selectedTodo={selectedTodo} />}
+      </div>
     </div>
   );
 };
